@@ -1,0 +1,31 @@
+{
+  "proxy": "",
+  "block": [
+    "my-real-name",
+    "internal\\.example\\.com"
+  ],
+  "repos": {
+    "my-tool": {
+      "path": "my-tool",
+      "branch": "main",
+      "message": "Sync from working copy: {files}",
+      "files": [
+        {
+          "from": "~/work/my-tool/tool.py",
+          "to": "tool.py",
+          "replace": [
+            {
+              "find": "DATA_DIR = r\"C:\\Users\\me\\private-data\"",
+              "with": "DATA_DIR = os.environ.get(\"MY_TOOL_DATA\", \"./data\")"
+            }
+          ]
+        },
+        { "from": "~/work/my-tool/helpers.py", "to": "helpers.py" }
+      ]
+    },
+    "edited-in-place": {
+      "path": "edited-in-place",
+      "files": []
+    }
+  }
+}
